@@ -106,6 +106,11 @@ static int beer_type_read(uint8_t *val, uint8_t *len)
 
 static int beer_type_write(uint8_t *val, uint8_t *len)
 {
+	int length;
+
+	length = *len > NAME_LENGTH ? NAME_LENGTH : *len;
+	memcpy(beer.beer_type, val, length);
+
 	return 0;
 }
 
