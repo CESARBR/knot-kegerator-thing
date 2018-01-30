@@ -91,11 +91,15 @@ static int setup_write(uint8_t *val)
 
 static int total_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *multiplier)
 {
+	*val_int = beer.total_vol;
+	*val_dec = 0;
+	*multiplier = 1;
 	return 0;
 }
 
 static int total_vol_write(int32_t *val_int, uint32_t *val_dec, int32_t *multiplier)
 {
+	beer.total_vol = *val_int;
 	return 0;
 }
 
