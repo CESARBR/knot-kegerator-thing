@@ -8,7 +8,9 @@
  */
 
 #include <KNoTThing.h>
+#include <math.h>
 #include "HX711.h"
+#include <EEPROM.h>
 
 /* Setup request defines */
 #define SETUP_REQUEST_ID	1
@@ -44,6 +46,8 @@
 #define A			REF_W/(K2 - K1)
 #define B			(-1) * REF_W * K1 / (K2 - K1);
 
+#define OFFSET_ADDR		0
+
 #define NAME_LENGTH		20
 
 static KNoTThing thing;
@@ -64,11 +68,12 @@ static unsigned long previousMillis = 0;
 static int32_t previous_value = 0;
 
 enum States {
+	INITIAL,
 	RUNNING,
 	SETUP_REQ,
 	SETUP_RDY
 };
-static States state = SETUP_REQ;
+static States state = INITIAL;
 
 void enable_tap(void)
 {
@@ -106,8 +111,12 @@ static int remaining_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *mult
 	static int32_t last_value = 0, read_value = 0, keg_weight = 0;
 
 	/* Tares de scale when tare_offset is zero */
-	if (tare_offset == 0)
+	if (tare_offset == 0){
 		tare_offset = get_weight();
+
+		/* Save tare_offset on EEPROM */
+		EEPROM.put(OFFSET_ADDR, tare_offset);
+	}
 
 	/*
 	* Read only on interval
@@ -218,6 +227,9 @@ void setup(void)
 	thing.registerDefaultConfig(BEER_TYPE_ID, KNOT_EVT_FLAG_CHANGE,
 		0, 0, 0, 0, 0);
 
+	/* Read tare_offset from EEPROM */
+	EEPROM.get(OFFSET_ADDR, tare_offset);
+
 	Serial.println(F("KNoT Kegerator"));
 }
 
@@ -226,6 +238,13 @@ void loop(void)
 	thing.run();
 
 	switch (state) {
+
+	case INITIAL:
+		if (isnan(tare_offset))
+			tare_offset = 0;
+
+		state = RUNNING;
+		break;
 
 	case RUNNING:
 		enable_tap();
@@ -251,5 +270,6 @@ void loop(void)
 			state = RUNNING;
 		}
 		break;
+
 	}
 }
