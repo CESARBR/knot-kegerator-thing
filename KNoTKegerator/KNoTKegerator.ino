@@ -26,6 +26,10 @@
 #define BEER_TYPE_ID		4
 #define BEER_TYPE_NAME		"Beer type"
 
+/* LED bicolor pins */
+#define GREEN_LED_PIN		4
+#define RED_LED_PIN		5
+
 #define BOUNCE_RANGE		200
 #define TIMES_READING		20
 #define READ_INTERVAL		1000
@@ -176,6 +180,9 @@ void setup(void)
 	Serial.begin(9600);
 	scale.power_up();
 
+	pinMode(GREEN_LED_PIN, OUTPUT);
+	pinMode(RED_LED_PIN, OUTPUT);
+
 	thing.init("KNoTKegerator");
 
 	/* Register setup request data and the default config */
@@ -220,6 +227,8 @@ void loop(void)
 	switch (state) {
 
 	case RUNNING:
+		digitalWrite(GREEN_LED_PIN, HIGH);
+		digitalWrite(RED_LED_PIN, LOW);
 		if (remaining_vol <= 1500){
 			beer.total_vol = 0;
 			state = SETUP_REQ;
@@ -227,6 +236,8 @@ void loop(void)
 		break;
 
 	case SETUP_REQ:
+		digitalWrite(GREEN_LED_PIN, LOW);
+		digitalWrite(RED_LED_PIN, HIGH);
 		if (remaining_vol >= 10000){
 			beer.setup_request = true;
 			state = SETUP_RDY;
