@@ -30,6 +30,9 @@
 #define TIMES_READING		20
 #define READ_INTERVAL		1000
 
+#define LOWER_THRESHOLD_VOL	300
+#define UPPER_THRESHOLD_VOL	20000
+
 /* Constants defined to get a valid weight */
 #define K1			8410743
 #define K2			9622553
@@ -56,6 +59,12 @@ static float tare_offset = 0;
 static unsigned long previousMillis = 0;
 static int32_t previous_value = 0;
 
+enum States {
+	RUNNING,
+	SETUP_REQ,
+	SETUP_RDY
+};
+static States state = SETUP_REQ;
 
 static int32_t remove_noise(int32_t value)
 {
@@ -78,7 +87,7 @@ static int32_t get_weight(void)
 static int remaining_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *multiplier)
 {
 	unsigned long currentMillis;
-	static int32_t read_value = 0, keg_weight = 0;
+	static int32_t last_value = 0, read_value = 0, keg_weight = 0;
 
 	/* Tares de scale when tare_offset is zero */
 	if (tare_offset == 0)
@@ -94,13 +103,32 @@ static int remaining_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *mult
 
 		keg_weight = remove_noise(read_value);
 
-		if ((tap.max_weight - keg_weight) <= tap.total_vol)
-			remaining_vol = tap.total_vol - (tap.max_weight - keg_weight);
-	}
+		if (state == RUNNING){
+			if ((tap.max_weight - keg_weight) <= tap.total_vol)
+				remaining_vol = tap.total_vol - (tap.max_weight - keg_weight);
 
-	*val_int = remaining_vol;
-	*val_dec = 0;
-	*multiplier = 1;
+			if (remaining_vol < last_value){
+				last_value = remaining_vol;
+				*val_int = remaining_vol;
+				*multiplier = 1;
+				*val_dec = 0;
+			} else {
+				*val_int = last_value;
+				*multiplier = 1;
+				*val_dec = 0;
+			}
+		} else {
+			tap.max_weight = keg_weight;
+			last_value = tap.max_weight;
+			*val_int = 0;
+			*multiplier = 1;
+			*val_dec = 0;
+		}
+	} else {
+		*val_int = remaining_vol;
+		*multiplier = 1;
+		*val_dec = 0;
+	}
 
 	return 0;
 }
@@ -177,4 +205,30 @@ void setup(void)
 void loop(void)
 {
 	thing.run();
+
+	switch (state) {
+
+	case RUNNING:
+		if (remaining_vol <= LOWER_THRESHOLD_VOL){
+			tap.total_vol = 0;
+			tap.max_weight = 0;
+			remaining_vol = 0;
+			state = SETUP_REQ;
+		}
+		break;
+
+	case SETUP_REQ:
+		if (tap.max_weight >= UPPER_THRESHOLD_VOL){
+			tap.setup_request = true;
+			state = SETUP_RDY;
+		}
+		break;
+
+	case SETUP_RDY:
+		if (tap.setup_request == false){
+			remaining_vol = tap.max_weight;
+			state = RUNNING;
+		}
+		break;
+	}
 }
