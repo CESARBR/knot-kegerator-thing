@@ -8,6 +8,7 @@
  */
 
 #include <KNoTThing.h>
+#include "HX711.h"
 
 /* Setup request defines */
 #define SETUP_REQUEST_ID	1
@@ -25,9 +26,19 @@
 #define BEER_TYPE_ID		4
 #define BEER_TYPE_NAME		"Beer type"
 
+#define BOUNCE_RANGE		200
+
+/* Constants defined to get a valid weight */
+#define K1			8410743
+#define K2			9622553
+#define REF_W			62.6
+#define A			REF_W/(K2 - K1)
+#define B			(-1) * REF_W * K1 / (K2 - K1);
+
 #define NAME_LENGTH		20
 
 KNoTThing thing;
+HX711 scale(A3, A2);
 
 struct myTap {
 	bool setup_request;
@@ -38,6 +49,26 @@ struct myTap {
 static struct myTap tap = {.setup_request = false, .total_vol = 0, .total_weight = 0};
 
 static float remaining_vol = 0;
+
+static int32_t previous_value = 0;
+
+static int32_t remove_noise(int32_t value)
+{
+	if (value > (previous_value + BOUNCE_RANGE) || value < (previous_value - BOUNCE_RANGE))
+		previous_value = value;
+
+	return previous_value;
+}
+
+static float get_weight(byte times)
+{
+	float raw_kg, mes, a, b;
+
+	mes = scale.get_value(times);
+	raw_kg = A * mes + B;
+
+	return raw_kg;
+}
 
 static int remaining_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *multiplier)
 {
@@ -73,6 +104,7 @@ static int total_vol_write(int32_t *val_int, uint32_t *val_dec, int32_t *multipl
 void setup(void)
 {
 	Serial.begin(115200);
+	scale.power_up();
 
 	thing.init("KNoTKegerator");
 
