@@ -55,6 +55,12 @@ static float offset = 0;
 static unsigned long previousMillis = 0;
 static int32_t previous_value = 0;
 
+enum {
+	RUNNING,
+	SETUP_REQ,
+	SETUP_RDY
+};
+static int state = SETUP_REQ;
 
 static int32_t remove_noise(int32_t value)
 {
@@ -82,12 +88,8 @@ static int remaining_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *mult
 	static float last_value = 0, read_value = 0;
 
 	/* Tares de scale when offset is zero */
-	if (offset == 0) {
+	if (offset == 0)
 		offset = get_weight(TIMES_READING);
-
-		/* Save offset on EEPROM */
-		EEPROM.put(OFFSET_ADDR, offset);
-	}
 
 	/*
 	* Read only on interval
@@ -102,6 +104,22 @@ static int remaining_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *mult
 
 	if ((beer.total_weight - read_value) <= beer.total_vol)
 		remaining_vol = beer.total_vol - (beer.total_weight - read_value);
+
+	if (state == RUNNING){
+		if (remaining_vol < last_value){
+			last_value = remaining_vol;
+			*val_int = remaining_vol;
+			*multiplier = 1;
+			*val_dec = 0;
+		} else {
+			*val_int = last_value;
+			*multiplier = 1;
+			*val_dec = 0;
+		}
+	} else {
+		beer.total_weight = read_value;
+		last_value = beer.total_weight;
+	}
 
 	return 0;
 }
@@ -198,4 +216,27 @@ void setup(void)
 void loop(void)
 {
 	thing.run();
+
+	switch (state) {
+
+	case RUNNING:
+		if (remaining_vol <= 1500){
+			beer.total_vol = 0;
+			state = SETUP_REQ;
+		}
+		break;
+
+	case SETUP_REQ:
+		if (remaining_vol >= 10000){
+			beer.setup_request = true;
+			state = SETUP_RDY;
+		}
+		break;
+
+	case SETUP_RDY:
+		if (beer.setup_request == false)
+			state = RUNNING;
+		break;
+	}
+
 }
