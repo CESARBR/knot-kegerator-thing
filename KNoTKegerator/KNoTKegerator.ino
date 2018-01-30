@@ -27,6 +27,8 @@
 #define BEER_TYPE_NAME		"Beer type"
 
 #define BOUNCE_RANGE		200
+#define TIMES_READING		20
+#define READ_INTERVAL		1000
 
 #define K1			8410743
 #define K2			9622553
@@ -47,7 +49,12 @@ static struct myBeer beer = {.setup_request = false, .total_vol = 0, .total_weig
 
 static float remaining_vol = 0;
 
+static float kg;
+static float offset = 0;
+
+static unsigned long previousMillis = 0;
 static int32_t previous_value = 0;
+
 
 static int32_t remove_noise(int32_t value)
 {
@@ -71,6 +78,31 @@ static float get_weight(byte times)
 
 static int remaining_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *multiplier)
 {
+	unsigned long currentMillis;
+	static float last_value = 0, read_value = 0;
+
+	/* Tares de scale when offset is zero */
+	if (offset == 0) {
+		offset = get_weight(TIMES_READING);
+
+		/* Save offset on EEPROM */
+		EEPROM.put(OFFSET_ADDR, offset);
+	}
+
+	/*
+	* Read only on interval
+	*/
+	currentMillis = millis();
+	if (currentMillis - previousMillis >= READ_INTERVAL) {
+		previousMillis = currentMillis;
+		kg = get_weight(TIMES_READING) - offset;
+	}
+
+	read_value = remove_noise(kg * 1000);
+
+	if ((beer.total_weight - read_value) <= beer.total_vol)
+		remaining_vol = beer.total_vol - (beer.total_weight - read_value);
+
 	return 0;
 }
 
