@@ -82,11 +82,13 @@ static int remaining_vol_write(int32_t *val_int, uint32_t *val_dec, int32_t *mul
 
 static int setup_read(uint8_t *val)
 {
+	*val = tap.setup_request;
 	return 0;
 }
 
 static int setup_write(uint8_t *val)
 {
+	tap.setup_request = *val;
 	return 0;
 }
 
