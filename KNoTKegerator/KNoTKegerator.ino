@@ -28,6 +28,9 @@
 #define BEER_TYPE_ID		4
 #define BEER_TYPE_NAME		"Beer type"
 
+/* Solenoid pin */
+#define SOLENOID_PIN		4
+
 /* LED bicolor pins */
 #define GREEN_LED_PIN		3
 #define RED_LED_PIN		5
@@ -84,6 +87,11 @@ void set_led_green(int state)
 void set_led_red(int state)
 {
 	digitalWrite(RED_LED_PIN, state);
+}
+
+void set_solenoid(int state)
+{
+	digitalWrite(SOLENOID_PIN, state);
 }
 
 static int32_t remove_noise(int32_t value)
@@ -194,6 +202,7 @@ void setup(void)
 	Serial.begin(115200);
 	scale.power_up();
 
+	pinMode(SOLENOID_PIN, OUTPUT);
 	pinMode(GREEN_LED_PIN, OUTPUT);
 	pinMode(RED_LED_PIN, OUTPUT);
 
@@ -254,6 +263,7 @@ void loop(void)
 		set_led_red(LOW);
 		set_led_green(HIGH);
 		if (remaining_vol <= LOWER_THRESHOLD_VOL){
+			set_solenoid(HIGH);
 			tap.total_vol = 0;
 			tap.total_weight = 0;
 			remaining_vol = 0;
@@ -271,9 +281,11 @@ void loop(void)
 		break;
 
 	case SETUP_RDY:
-		if (tap.setup_request == false)
+		if (tap.setup_request == false){
+			set_solenoid(LOW);
 			remaining_vol = tap.total_weight;
 			state = RUNNING;
+		}
 		break;
 
 	}
