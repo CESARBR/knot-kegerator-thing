@@ -8,7 +8,9 @@
  */
 
 #include <KNoTThing.h>
+#include <math.h>
 #include "HX711.h"
+#include <EEPROM.h>
 
 /* Setup request defines */
 #define SETUP_REQUEST_ID	1
@@ -38,6 +40,8 @@
 #define K2			9622553
 #define REF_W			62.6
 
+#define OFFSET_ADDR		0
+
 #define NAME_LENGTH		20
 
 KNoTThing thing;
@@ -60,11 +64,12 @@ static unsigned long previousMillis = 0;
 static int32_t previous_value = 0;
 
 enum {
+	INITIAL,
 	RUNNING,
 	SETUP_REQ,
 	SETUP_RDY
 };
-static int state = SETUP_REQ;
+static int state = INITIAL;
 
 static int32_t remove_noise(int32_t value)
 {
@@ -92,8 +97,12 @@ static int remaining_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *mult
 	static float last_value = 0, read_value = 0;
 
 	/* Tares de scale when offset is zero */
-	if (offset == 0)
+	if (offset == 0){
 		offset = get_weight(TIMES_READING);
+
+		/* Save offset on EEPROM */
+		EEPROM.put(OFFSET_ADDR, offset);
+	}
 
 	/*
 	* Read only on interval
@@ -217,6 +226,9 @@ void setup(void)
 	thing.registerDefaultConfig(BEER_TYPE_ID, KNOT_EVT_FLAG_CHANGE,
 		0, 0, 0, 0, 0);
 
+	/* Read offset from EEPROM */
+	EEPROM.get(OFFSET_ADDR, offset);
+
 	Serial.println(F("KNoT Kegerator"));
 }
 
@@ -226,6 +238,12 @@ void loop(void)
 
 	switch (state) {
 
+	case INITIAL:
+		if (isnan(offset))
+			offset = 0;
+
+		state = RUNNING;
+		break;
 	case RUNNING:
 		digitalWrite(GREEN_LED_PIN, HIGH);
 		digitalWrite(RED_LED_PIN, LOW);
