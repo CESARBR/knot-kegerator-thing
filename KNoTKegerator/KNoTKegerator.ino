@@ -26,6 +26,10 @@
 #define BEER_TYPE_ID		4
 #define BEER_TYPE_NAME		"Beer type"
 
+/* LED bicolor pins */
+#define GREEN_LED_PIN		3
+#define RED_LED_PIN		5
+
 #define BOUNCE_RANGE		200
 #define TIMES_READING		20
 #define READ_INTERVAL		1000
@@ -66,6 +70,16 @@ enum States {
 	SETUP_RDY
 };
 static States state = SETUP_REQ;
+
+void set_led_green(int state)
+{
+	digitalWrite(GREEN_LED_PIN, state);
+}
+
+void set_led_red(int state)
+{
+	digitalWrite(RED_LED_PIN, state);
+}
 
 static int32_t remove_noise(int32_t value)
 {
@@ -171,6 +185,9 @@ void setup(void)
 	Serial.begin(115200);
 	scale.power_up();
 
+	pinMode(GREEN_LED_PIN, OUTPUT);
+	pinMode(RED_LED_PIN, OUTPUT);
+
 	thing.init("KNoTKegerator");
 
 	/* Register setup request data and the default config */
@@ -215,6 +232,8 @@ void loop(void)
 	switch (state) {
 
 	case RUNNING:
+		set_led_red(LOW);
+		set_led_green(HIGH);
 		if (remaining_vol <= LOWER_THRESHOLD_VOL){
 			tap.total_vol = 0;
 			tap.total_weight = 0;
@@ -224,6 +243,8 @@ void loop(void)
 		break;
 
 	case SETUP_REQ:
+		set_led_red(HIGH);
+		set_led_green(LOW);
 		if (tap.total_weight >= UPPER_THRESHOLD_VOL){
 			tap.setup_request = true;
 			state = SETUP_RDY;
