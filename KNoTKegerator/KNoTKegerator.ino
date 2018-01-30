@@ -28,6 +28,7 @@
 
 #define BOUNCE_RANGE		200
 #define TIMES_READING		20
+#define READ_INTERVAL		1000
 
 /* Constants defined to get a valid weight */
 #define K1			8410743
@@ -51,7 +52,10 @@ static struct myTap tap = {.setup_request = false, .total_vol = 0, .max_weight =
 
 static int32_t remaining_vol = 0;
 
+static int32_t tare_offset = 0;
+static unsigned long previousMillis = 0;
 static int32_t previous_value = 0;
+
 
 static int32_t remove_noise(int32_t value)
 {
@@ -73,6 +77,31 @@ static int32_t get_weight(void)
 
 static int remaining_vol_read(int32_t *val_int, uint32_t *val_dec, int32_t *multiplier)
 {
+	unsigned long currentMillis;
+	static int32_t read_value = 0, keg_weight = 0;
+
+	/* Tares de scale when tare_offset is zero */
+	if (tare_offset == 0)
+		tare_offset = get_weight();
+
+	/*
+	* Read only on interval
+	*/
+	currentMillis = millis();
+	if (currentMillis - previousMillis >= READ_INTERVAL) {
+		previousMillis = currentMillis;
+		read_value = get_weight() - tare_offset;
+
+		keg_weight = remove_noise(read_value);
+
+		if ((tap.max_weight - keg_weight) <= tap.total_vol)
+			remaining_vol = tap.total_vol - (tap.max_weight - keg_weight);
+	}
+
+	*val_int = remaining_vol;
+	*val_dec = 0;
+	*multiplier = 1;
+
 	return 0;
 }
 
