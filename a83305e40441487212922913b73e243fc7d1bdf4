@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b118a2ee_c3d15cb5",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T13:14:39Z",
+      "side": 1,
+      "message": "Change to myTap",
+      "range": {
+        "startLine": 32,
+        "startChar": 7,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "a83305e40441487212922913b73e243fc7d1bdf4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f35b6e0d_f0e16c73",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T13:14:39Z",
+      "side": 1,
+      "message": "change to \"tap\"",
+      "range": {
+        "startLine": 38,
+        "startChar": 21,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "a83305e40441487212922913b73e243fc7d1bdf4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d54abb8_9c6c455a",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T13:14:39Z",
+      "side": 1,
+      "message": "Change to 300 seconds",
+      "range": {
+        "startLine": 103,
+        "startChar": 22,
+        "endLine": 103,
+        "endChar": 24
+      },
+      "revId": "a83305e40441487212922913b73e243fc7d1bdf4",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
