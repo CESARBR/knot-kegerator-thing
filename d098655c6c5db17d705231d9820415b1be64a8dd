@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4ad3964_569a85ac",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:24:28Z",
+      "side": 1,
+      "message": "Set a name for this enum",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 4
+      },
+      "revId": "d098655c6c5db17d705231d9820415b1be64a8dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86f1b733_86765538",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:24:28Z",
+      "side": 1,
+      "message": "change to the enum data type",
+      "range": {
+        "startLine": 63,
+        "startChar": 7,
+        "endLine": 63,
+        "endChar": 10
+      },
+      "revId": "d098655c6c5db17d705231d9820415b1be64a8dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb423489_4b962aee",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:24:28Z",
+      "side": 1,
+      "message": "You must always set the *val_int. It is the returning value of this function. In this case, it should be set to zero.",
+      "range": {
+        "startLine": 119,
+        "startChar": 1,
+        "endLine": 121,
+        "endChar": 33
+      },
+      "revId": "d098655c6c5db17d705231d9820415b1be64a8dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dc685dc_d9204a00",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:24:28Z",
+      "side": 1,
+      "message": "Change to a #define",
+      "range": {
+        "startLine": 223,
+        "startChar": 23,
+        "endLine": 223,
+        "endChar": 27
+      },
+      "revId": "d098655c6c5db17d705231d9820415b1be64a8dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "876aab01_1e6b94c3",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:24:28Z",
+      "side": 1,
+      "message": "change to a #define",
+      "range": {
+        "startLine": 230,
+        "startChar": 23,
+        "endLine": 230,
+        "endChar": 28
+      },
+      "revId": "d098655c6c5db17d705231d9820415b1be64a8dd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
