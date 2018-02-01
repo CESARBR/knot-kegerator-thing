@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a6d3a70_bf2e3959",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:35:22Z",
+      "side": 1,
+      "message": "change green led pin to 3 (PWM pin)",
+      "range": {
+        "startLine": 30,
+        "startChar": 23,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "c22c87aea5a66d659792fe82901e8095cf84dcb9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba6799d5_d7a76650",
         "filename": "KNoTKegerator/KNoTKegerator.ino",
         "patchSetId": 1
