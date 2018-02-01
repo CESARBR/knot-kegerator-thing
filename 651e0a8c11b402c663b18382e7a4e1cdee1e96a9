@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a93e9f9e_9aff955b",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1013397
+      },
+      "writtenOn": "2018-02-01T12:56:38Z",
+      "side": 1,
+      "message": "Missing static modifier",
+      "revId": "651e0a8c11b402c663b18382e7a4e1cdee1e96a9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
