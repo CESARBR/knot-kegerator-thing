@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be8703b3_e90b134e",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T13:24:54Z",
+      "side": 1,
+      "message": "It is missing a comment explaining the constants defined here",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "4b109d088c5a1d7b8840c68b748b85f0147bf993",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f320f58_54dedc01",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T13:24:54Z",
+      "side": 1,
+      "message": "remove_noise is a static function that is defined but never used.",
+      "range": {
+        "startLine": 52,
+        "startChar": 15,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "4b109d088c5a1d7b8840c68b748b85f0147bf993",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9b7d4a6_a5faf372",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T13:24:54Z",
+      "side": 1,
+      "message": "\"a\" is a constant value (a result of operations with constants) and should be defined using #define directive:\n#define A (REF_W/(K2 - K1))",
+      "range": {
+        "startLine": 65,
+        "startChar": 1,
+        "endLine": 65,
+        "endChar": 20
+      },
+      "revId": "4b109d088c5a1d7b8840c68b748b85f0147bf993",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578f8099_38709d8f",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T13:24:54Z",
+      "side": 1,
+      "message": "\"b\" is a constant value (a result of operations with constants) and should be defined using #define directive:\n#define B ((-REF_W*K1)/(K2 - K1))",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "4b109d088c5a1d7b8840c68b748b85f0147bf993",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
