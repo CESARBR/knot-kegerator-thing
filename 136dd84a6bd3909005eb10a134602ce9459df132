@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b52a648d_40383fce",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:16:40Z",
+      "side": 1,
+      "message": "change to \"keg_weight\"",
+      "range": {
+        "startLine": 52,
+        "startChar": 13,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "136dd84a6bd3909005eb10a134602ce9459df132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e7158a8_288462d7",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:16:40Z",
+      "side": 1,
+      "message": "change to \"keg_offset\"",
+      "range": {
+        "startLine": 53,
+        "startChar": 13,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "136dd84a6bd3909005eb10a134602ce9459df132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d61bc36_e02c4ac3",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:16:40Z",
+      "side": 1,
+      "message": "Remove extra line",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 0
+      },
+      "revId": "136dd84a6bd3909005eb10a134602ce9459df132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8446d28_de873fff",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:16:40Z",
+      "side": 1,
+      "message": "This should only be done if the result of get_weight is also greater than zero.",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 34
+      },
+      "revId": "136dd84a6bd3909005eb10a134602ce9459df132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f67b05b6_59bb1f8c",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:16:40Z",
+      "side": 1,
+      "message": "if get_weight returns \"0\" (no keg), offset should be set to \"0\"",
+      "range": {
+        "startLine": 98,
+        "startChar": 7,
+        "endLine": 98,
+        "endChar": 17
+      },
+      "revId": "136dd84a6bd3909005eb10a134602ce9459df132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dbe8f37_5d920a5b",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:16:40Z",
+      "side": 1,
+      "message": "total_weight is not being set. probably you are using offset for the same use of total_weight, please verify it.",
+      "range": {
+        "startLine": 103,
+        "startChar": 11,
+        "endLine": 103,
+        "endChar": 23
+      },
+      "revId": "136dd84a6bd3909005eb10a134602ce9459df132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4840ce06_e84d13c3",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:16:40Z",
+      "side": 1,
+      "message": "This also should only be done after \"READ_INTERVAL\"",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 68
+      },
+      "revId": "136dd84a6bd3909005eb10a134602ce9459df132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e1f228b_67819ce7",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:16:40Z",
+      "side": 1,
+      "message": "*val_int should be set to remaining_vol",
+      "range": {
+        "startLine": 106,
+        "startChar": 1,
+        "endLine": 106,
+        "endChar": 10
+      },
+      "revId": "136dd84a6bd3909005eb10a134602ce9459df132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2bee727_455b7eeb",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-01T14:16:40Z",
+      "side": 1,
+      "message": "It is needed to read the last offset from EEPROM",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 1
+      },
+      "revId": "136dd84a6bd3909005eb10a134602ce9459df132",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
