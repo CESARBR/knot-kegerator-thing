@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aabc881f_e2804376",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T18:24:50Z",
+      "side": 1,
+      "message": "Remove the parameter. This function set led color to green",
+      "range": {
+        "startLine": 74,
+        "startChar": 19,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "75b2bef5f518f225323cf94b9a3f0d463d52abe1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df724086_0b9d159e",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T18:24:50Z",
+      "side": 1,
+      "message": "Remove the parameter. This function set led color to red",
+      "range": {
+        "startLine": 79,
+        "startChar": 17,
+        "endLine": 79,
+        "endChar": 26
+      },
+      "revId": "75b2bef5f518f225323cf94b9a3f0d463d52abe1",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
