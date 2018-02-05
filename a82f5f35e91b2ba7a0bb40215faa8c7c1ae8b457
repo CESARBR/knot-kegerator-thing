@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3ae736c_eaf481cf",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T18:26:58Z",
+      "side": 1,
+      "message": "Set solenoid values inside led functions",
+      "range": {
+        "startLine": 92,
+        "startChar": 5,
+        "endLine": 92,
+        "endChar": 17
+      },
+      "revId": "a82f5f35e91b2ba7a0bb40215faa8c7c1ae8b457",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
