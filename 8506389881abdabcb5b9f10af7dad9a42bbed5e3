@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f6cb372_6037853e",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T18:17:26Z",
+      "side": 1,
+      "message": "change keg_weight to read_value",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 12
+      },
+      "revId": "8506389881abdabcb5b9f10af7dad9a42bbed5e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e792de8f_5992c82b",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T18:17:26Z",
+      "side": 1,
+      "message": "set val_int to remaining_vol",
+      "range": {
+        "startLine": 99,
+        "startChar": 3,
+        "endLine": 99,
+        "endChar": 16
+      },
+      "revId": "8506389881abdabcb5b9f10af7dad9a42bbed5e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d5446c3_fdd04dae",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T18:17:26Z",
+      "side": 1,
+      "message": "This function should return zero on success",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "8506389881abdabcb5b9f10af7dad9a42bbed5e3",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
