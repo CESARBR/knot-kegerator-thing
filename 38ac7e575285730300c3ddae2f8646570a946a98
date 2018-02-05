@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6fc974e2_4748b8f9",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T18:23:03Z",
+      "side": 1,
+      "message": "set lower_threshold to 300",
+      "range": {
+        "startLine": 33,
+        "startChar": 28,
+        "endLine": 33,
+        "endChar": 32
+      },
+      "revId": "38ac7e575285730300c3ddae2f8646570a946a98",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc8f3780_8bb3d1f6",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T18:23:03Z",
+      "side": 1,
+      "message": "set val_int to zero",
+      "range": {
+        "startLine": 124,
+        "startChar": 14,
+        "endLine": 124,
+        "endChar": 27
+      },
+      "revId": "38ac7e575285730300c3ddae2f8646570a946a98",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
