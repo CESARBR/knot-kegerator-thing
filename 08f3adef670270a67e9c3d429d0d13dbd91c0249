@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33ac5f99_4168ff95",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T17:53:24Z",
+      "side": 1,
+      "message": "Remove this function, as remaining_vol cannot be written by the cloud",
+      "range": {
+        "startLine": 47,
+        "startChar": 11,
+        "endLine": 47,
+        "endChar": 30
+      },
+      "revId": "08f3adef670270a67e9c3d429d0d13dbd91c0249",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "674e4bd5_c03935b5",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-05T17:53:24Z",
+      "side": 1,
+      "message": "Pass NULL to the remaining_vol write function",
+      "range": {
+        "startLine": 90,
+        "startChar": 22,
+        "endLine": 90,
+        "endChar": 41
+      },
+      "revId": "08f3adef670270a67e9c3d429d0d13dbd91c0249",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
