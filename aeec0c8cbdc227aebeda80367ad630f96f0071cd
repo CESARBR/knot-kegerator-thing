@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4755be3f_d9ca66fe",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-07T14:11:51Z",
+      "side": 1,
+      "message": "Add \"\u0026\u0026 tap.total_vol \u003e 0\" to this condition, this is for ensuring that total_vol set message was received before go to running state.",
+      "revId": "aeec0c8cbdc227aebeda80367ad630f96f0071cd",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
