@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "469b3f60_342c79ce",
+        "filename": "KNoTKegerator/KNoTKegerator.ino",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1013399
+      },
+      "writtenOn": "2018-02-07T14:12:17Z",
+      "side": 1,
+      "message": "tare_offset should be int32_t",
+      "range": {
+        "startLine": 55,
+        "startChar": 13,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "cdf33ec0fcfff12c54bd97c90beb691a66fd5d66",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
